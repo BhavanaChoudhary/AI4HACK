@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predictive Maintenance Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="project-name-container">
+            <h1>AI Copilot: Driving Predictive Maintenance in Industry 4.0</h1>
+        </div>
+        <div class="cards-container">
+<a href="https://web.telegram.org/k/#@INVENT43BOT" target="_blank" rel="noopener noreferrer" class="card" role="button" aria-labelledby="card1-title" tabindex="0">
+        <div class="card-content">
+            <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 6H8v1h4v-1zm-4 2v1h4v-1H8zm8 4H8v1h8v-1zm0-2H8v1h8v-1z"/>
+                </svg>
+            </div>
+            <h2 id="card1-title" class="card-title">Industrial Inventory Maintenance</h2>
+            <p class="card-description">Automated tracking and management of spare parts, tools, and consumables with smart reordering alerts and consumption analytics.</p>
+            <span class="card-cta">Learn more →</span>
+        </div>
+    </a>
+
+    <a href="http://localhost:8501/" target="_blank" rel="noopener noreferrer" class="card" role="button" aria-labelledby="card2-title" tabindex="0">
+        <div class="card-content">
+            <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.88 18.47c.48-.77.75-1.67.69-2.66-.13-2.15-1.84-3.97-3.99-4.24-3.44-.45-6.46 2.61-5.81 6.03.42 2.19 2.24 3.83 4.42 4.05 2.61.27 4.91-1.64 4.69-4.18zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                </svg>
+            </div>
+            <h2 id="card2-title" class="card-title">ML-Based Equipment Health Status</h2>
+            <p class="card-description">Real-time machine health scoring with historical comparisons, visual trend graphs, and predictive failure probability indicators.</p>
+            <span class="card-cta">Learn more →</span>
+        </div>
+    </a>
+
+    <a href="http://localhost:8502/" target="_blank" rel="noopener noreferrer" class="card" role="button" aria-labelledby="card3-title" tabindex="0">
+        <div class="card-content">
+            <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/>
+                </svg>
+            </div>
+            <h2 id="card3-title" class="card-title">Video/Image-Based Detection</h2>
+            <p class="card-description">Computer vision systems for vibration pattern analysis, surface rust detection, and structural anomaly identification through visual inputs.</p>
+            <span class="card-cta">Learn more →</span>
+        </div>
+    </a>
+</div>
+    </a>
+</div>
+    </div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <h3>Maintenance Assistant</h3>
+            </div>
+            <button id="chat-close" class="chatbot-btn"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div id="chat-box" class="hidden">
+            <div id="chat-messages">
+                <div class="welcome-msg">
+                    <p>Hello! I'm your maintenance assistant. How can I help you today?</p>
+                    <div class="quick-questions">
+                        <button class="quick-btn">Machine making strange noises</button>
+                        <button class="quick-btn">Vibration issues</button>
+                        <button class="quick-btn">Temperature warnings</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" id="user-input" placeholder="Describe the machine issue..." />
+                <button id="send-btn" class="chatbot-btn" title="Send">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button id="attach-btn" class="chatbot-btn" title="Attach file">
+                    <i class="fas fa-paperclip"></i>
+                    <input type="file" id="file-input" accept="image/*,.pdf,.doc,.docx" style="display:none;">
+                </button>
+            </div>
+        </div>
+        
+        <button id="chat-toggle" class="chatbot-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="notification-badge hidden"></span>
+        </button>
+    </div>
+    
+    <script src="/static/script.js"></script>
+    <script>
+  (function(){
+    if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+      window.chatbase=(...arguments)=>{
+        if(!window.chatbase.q){window.chatbase.q=[]}
+        window.chatbase.q.push(arguments)
+      };
+      window.chatbase=new Proxy(window.chatbase,{
+        get(target,prop){
+          if(prop==="q"){return target.q}
+          return(...args)=>target(prop,...args)
+        }
+      })
+    }
+    const onLoad=function(){
+      const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="tBmCn6Ui_jfSNMJzOGm9u";  // This is your chatbot ID
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)
+    };
+    if(document.readyState==="complete"){onLoad()}
+    else{window.addEventListener("load",onLoad)}
+  })();
+  </script>
+</body>
+</html>
